@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_result.*
 import java.text.DecimalFormat
 
@@ -23,36 +26,36 @@ class ResultActivity : AppCompatActivity() {
         // Showing IMC result in a TextView
         txtResult.text = imcfinal.toString()
 
+        // classifying the group
 
-        if(imcfinal <= 18.4) {
-            btnUnder.setBackgroundColor(resources.getColor(R.color.colorTransparent))
-            btnUnder.setTextColor(resources.getColor(R.color.colorWhite))
-            txtUnder.setTextColor(resources.getColor(R.color.colorWhite))
-            bkgUnder.visibility=View.VISIBLE
-            pointer.rotation = -55f
 
-        } else if(imcfinal > 18.5 && imcfinal<25 ){
-            btnIdeal.setBackgroundColor(resources.getColor(R.color.colorTransparent))
-            btnIdeal.setTextColor((resources.getColor(R.color.colorWhite)))
-            txtIdeal.setTextColor(resources.getColor(R.color.colorWhite))
-            bkgIdeal.visibility = View.VISIBLE
-            pointer.rotation = 0f
-
-        } else if(imcfinal >= 25 && imcfinal<=29.9 ){
-            btnOver.setBackgroundColor(resources.getColor(R.color.colorTransparent))
-            btnOver.setTextColor((resources.getColor(R.color.colorWhite)))
-            txtOver.setTextColor(resources.getColor(R.color.colorWhite))
-            bkgOver.visibility = View.VISIBLE
-            pointer.rotation = 60f
-
-        } else {
-            btnObese.setBackgroundColor(resources.getColor(R.color.colorTransparent))
-            btnObese.setTextColor((resources.getColor(R.color.colorWhite)))
-            txtObese.setTextColor(resources.getColor(R.color.colorWhite))
-            bkgObese.visibility = View.VISIBLE
-            pointer.rotation = 120f
-
+        // Function that highlights the right group
+        fun chooseGroup(btn: Button, txt : TextView, img: ImageView) {
+            btn.setBackgroundColor(resources.getColor(R.color.colorTransparent))
+            btn.setTextColor(resources.getColor(R.color.colorWhite))
+            txt.setTextColor(resources.getColor(R.color.colorWhite))
+            img.visibility=View.VISIBLE
         }
+
+
+
+        Handler().postDelayed({
+
+            // Picking the right group and applying a function to Highlight it
+            if(imcfinal <= 18.4) {
+                chooseGroup(btnUnder, txtUnder, bkgUnder)
+
+            } else if(imcfinal > 18.5 && imcfinal<25 ){
+                chooseGroup(btnIdeal, txtIdeal, bkgIdeal)
+
+            } else if(imcfinal >= 25 && imcfinal<=29.9 ){
+                chooseGroup(btnOver, txtOver, bkgOver)
+
+            } else {
+                chooseGroup(btnObese, txtObese, bkgObese)
+            }
+
+        }, 1500)
 
         // Setting up CalculateAgain button (come back to MainActivity)
         btnCalculateAgain.setOnClickListener {
