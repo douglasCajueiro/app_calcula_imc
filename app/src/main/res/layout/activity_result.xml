@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResultActivity">
+
+    <ImageView
+        android:id="@+id/bkgIdeal"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/btnIdeal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnIdeal"
+        app:srcCompat="@drawable/result_background_green" />
+
+    <ImageView
+        android:id="@+id/bkgUnder"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/btnUnder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnUnder"
+        app:srcCompat="@drawable/result_background_blue" />
+
+    <ImageView
+        android:id="@+id/bkgOver"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/btnOver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnOver"
+        app:srcCompat="@drawable/result_background_yellow" />
+
+    <ImageView
+        android:id="@+id/bkgObese"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/btnObese"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnObese"
+        app:srcCompat="@drawable/result_background_red" />
+
+    <TextView
+        android:id="@+id/txtResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="IMC"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnUnder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btnCalculateAgain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/form_button"
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="5dp"
+        android:text="Calcular novamente"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnUnder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@color/colorCircleBlue"
+        android:clickable="false"
+        android:paddingLeft="35dp"
+        android:paddingRight="35dp"
+        android:text="Até 18,4"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnIdeal"
+        app:layout_constraintEnd_toStartOf="@+id/txtUnder"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnIdeal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@color/colorCircleGreen"
+        android:clickable="false"
+        android:text="de 18,5 a 24,9"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnOver"
+        app:layout_constraintEnd_toEndOf="@+id/btnUnder"
+        app:layout_constraintStart_toStartOf="@+id/btnUnder" />
+
+    <Button
+        android:id="@+id/btnOver"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@color/colorCircleYellow"
+        android:clickable="false"
+        android:text="De 25 a 29,9"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnObese"
+        app:layout_constraintEnd_toEndOf="@+id/btnIdeal"
+        app:layout_constraintStart_toStartOf="@+id/btnIdeal" />
+
+    <Button
+        android:id="@+id/btnObese"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:background="@color/colorCircleRed"
+        android:clickable="false"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="Acima de 30"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnCalculateAgain"
+        app:layout_constraintEnd_toEndOf="@+id/btnOver"
+        app:layout_constraintStart_toStartOf="@+id/btnOver" />
+
+    <TextView
+        android:id="@+id/txtUnder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Abaixo do peso"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnUnder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnUnder"
+        app:layout_constraintTop_toTopOf="@+id/btnUnder" />
+
+    <TextView
+        android:id="@+id/txtIdeal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Peso ideal"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnIdeal"
+        app:layout_constraintStart_toStartOf="@+id/txtUnder"
+        app:layout_constraintTop_toTopOf="@+id/btnIdeal" />
+
+    <TextView
+        android:id="@+id/txtOver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sobrepeso"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnOver"
+        app:layout_constraintStart_toStartOf="@+id/txtIdeal"
+        app:layout_constraintTop_toTopOf="@+id/btnOver" />
+
+    <TextView
+        android:id="@+id/txtObese"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Obesidade"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnObese"
+        app:layout_constraintStart_toStartOf="@+id/txtOver"
+        app:layout_constraintTop_toTopOf="@+id/btnObese" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="24dp"
+        android:text="Seu IMC:"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnUnder"
+        app:layout_constraintEnd_toStartOf="@+id/txtResult"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/splash_circle_bkg" />
+
+    <ImageView
+        android:id="@+id/pointer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:rotation="-110"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:srcCompat="@drawable/splash_circle_pointer_green" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
