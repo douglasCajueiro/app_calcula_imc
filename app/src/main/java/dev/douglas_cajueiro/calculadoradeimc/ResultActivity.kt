@@ -5,10 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.LinearInterpolator
+import android.view.animation.RotateAnimation
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_result.*
+import kotlinx.android.synthetic.main.activity_splash.*
 import java.text.DecimalFormat
 
 class ResultActivity : AppCompatActivity() {
@@ -26,8 +30,6 @@ class ResultActivity : AppCompatActivity() {
         // Showing IMC result in a TextView
         txtResult.text = imcfinal.toString()
 
-        // classifying the group
-
 
         // Function that highlights the right group
         fun chooseGroup(btn: Button, txt : TextView, img: ImageView) {
@@ -37,8 +39,54 @@ class ResultActivity : AppCompatActivity() {
             img.visibility=View.VISIBLE
         }
 
+        // classifying the group
+        val classify = if (imcfinal <= 18.4) {
+            "Under"
+
+        } else if (imcfinal > 18.5 && imcfinal<25 ){
+            "Ideal"
+
+        } else if (imcfinal >= 25 && imcfinal<=29.9 ){
+            "Over"
+
+        } else {
+            "Obese"
+        }
+
+        // Setting pointer final position
+        pointer.rotation = if (classify == "Under") {
+            55f
+        } else if (classify == "Ideal") {
+            115f
+        } else if (classify == "Over") {
+            180f
+        } else {
+            235f
+        }
 
 
+
+        // Rotating the pointer
+
+        Handler().postDelayed({
+            var pointerPosition = pointer.rotation * -1
+            val rotate = RotateAnimation(
+                pointerPosition.toFloat(),
+                0f,
+                Animation.RELATIVE_TO_SELF,
+                0.5f,
+                Animation.RELATIVE_TO_SELF,
+                0.5f
+            )
+            rotate.duration = 1200
+            rotate.interpolator = LinearInterpolator()
+
+            pointer.startAnimation(rotate)
+
+        }, 150)
+
+
+        // Setting Handle to wait for the pointer to spin
         Handler().postDelayed({
 
             // Picking the right group and applying a function to Highlight it
@@ -55,7 +103,7 @@ class ResultActivity : AppCompatActivity() {
                 chooseGroup(btnObese, txtObese, bkgObese)
             }
 
-        }, 1500)
+        }, 1350)
 
         // Setting up CalculateAgain button (come back to MainActivity)
         btnCalculateAgain.setOnClickListener {
