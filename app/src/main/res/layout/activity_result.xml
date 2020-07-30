@@ -4,7 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorLightBlue"
     tools:context=".ResultActivity">
+
+    <ImageView
+        android:id="@+id/whiteBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtResult"
+        app:srcCompat="@color/colorWhite" />
 
     <ImageView
         android:id="@+id/bkgIdeal"
@@ -66,6 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:text="IMC"
+        android:textColor="@color/colorWhite"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/btnUnder"
         app:layout_constraintEnd_toEndOf="parent"
@@ -199,6 +211,7 @@
         android:layout_height="0dp"
         android:layout_marginBottom="24dp"
         android:text="Seu IMC:"
+        android:textColor="@color/colorWhite"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/btnUnder"
         app:layout_constraintEnd_toStartOf="@+id/txtResult"
