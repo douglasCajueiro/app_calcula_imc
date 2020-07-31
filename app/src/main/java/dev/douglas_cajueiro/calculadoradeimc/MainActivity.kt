@@ -11,21 +11,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val emptyMessage = "Campo obrigatório"
 
         btnCalcular.setOnClickListener {
 
-            val peso = edtPeso.text.toString().toFloat()
-            val altura = edtAltura.text.toString().toFloat()
-            val imc = (peso / (altura * altura)) * 10000
-
-
-            if (peso.toString().isEmpty()) {
-                edtPeso.error = "Campo obrigatório"
+            if (edtPeso.text.toString().isNullOrEmpty() || edtPeso.text.toString().toInt() == 0) {
+                edtPeso.error = emptyMessage
             }
-            else if(altura.toString().isEmpty()) {
-                edtAltura.error = "Campo obrigatório"
-            }
-            else {
+            else if (edtAltura.text.toString().isNullOrEmpty() || edtAltura.text.toString().toInt() == 0) {
+                edtAltura.error = emptyMessage
+            } else {
+
+                val peso = edtPeso.text.toString().toFloat()
+                val altura = edtAltura.text.toString().toFloat()
+                val imc = (peso / (altura * altura)) * 10000
 
                 val mIntent = Intent(this, ResultActivity::class.java)
                 mIntent.putExtra("IMC", imc.toString())
